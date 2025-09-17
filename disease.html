@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detector - Krishi Mitra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container mt-5 pt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="card-title text-center mb-4 display-5 fw-bold text-success">
+                            <i class="bi bi-bug me-2"></i> <span data-lang-en="Crop Disease Detector" data-lang-hi="फसल रोग डिटेक्टर">Crop Disease Detector</span>
+                        </h2>
+                        <p class="lead text-center text-muted mb-5" data-lang-en="Identify crop diseases quickly using images or manual selection." data-lang-hi="छवियों या मैन्युअल चयन का उपयोग करके फसल रोगों की तुरंत पहचान करें।">
+                            Identify crop diseases quickly using images or manual selection.
+                        </p>
+
+                        <ul class="nav nav-tabs nav-fill mb-4" id="diseaseTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload-pane" type="button" role="tab" aria-controls="upload-pane" aria-selected="true">
+                                    <i class="bi bi-image me-2"></i> <span data-lang-en="Upload Image" data-lang-hi="छवि अपलोड करें">Upload Image</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="manual-tab" data-bs-toggle="tab" data-bs-target="#manual-pane" type="button" role="tab" aria-controls="manual-pane" aria-selected="false">
+                                    <i class="bi bi-list-columns-reverse me-2"></i> <span data-lang-en="Manual Selection" data-lang-hi="मैन्युअल चयन">Manual Selection</span>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="diseaseTabsContent">
+                            <div class="tab-pane fade show active" id="upload-pane" role="tabpanel" aria-labelledby="upload-tab">
+                                <div class="text-center p-3 border rounded-3 bg-light">
+                                    <p class="mb-3 fs-5" data-lang-en="Upload a clear photo of the infected crop leaf." data-lang-hi="संक्रमित फसल पत्ती की एक स्पष्ट तस्वीर अपलोड करें।">
+                                        Upload a clear photo of the infected crop leaf.
+                                    </p>
+                                    <label for="imageUpload" class="btn btn-success btn-lg mb-3">
+                                        <i class="bi bi-camera-fill me-2"></i> <span data-lang-en="Choose Photo" data-lang-hi="फोटो चुनें">Choose Photo</span>
+                                    </label>
+                                    <input type="file" id="imageUpload" accept="image/*" class="d-none">
+                                    
+                                    <div class="mb-3">
+                                        <img id="imagePreview" src="" alt="Image Preview" class="img-fluid rounded shadow-sm" style="display:none; max-height: 300px; border: 1px solid #ddd;">
+                                    </div>
+                                    <button id="detectDiseaseBtn" class="btn btn-primary btn-lg w-50 mt-3" style="display:none;">
+                                        <span data-lang-en="Detect Disease" data-lang-hi="रोग का पता लगाएं">Detect Disease</span> <i class="bi bi-search ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="manual-pane" role="tabpanel" aria-labelledby="manual-tab">
+                                <form id="manualDetectionForm" class="p-3 border rounded-3 bg-light">
+                                    <div class="mb-3">
+                                        <label for="soilType" class="form-label fw-bold" data-lang-en="Select Soil Type" data-lang-hi="मिट्टी का प्रकार चुनें">Select Soil Type</label>
+                                        <select class="form-select" id="soilType">
+                                            <option value="" data-lang-en="-- Select --" data-lang-hi="-- चुनें --">-- Select --</option>
+                                            <option value="loamy" data-lang-en="Loamy" data-lang-hi="दोमट">Loamy</option>
+                                            <option value="sandy" data-lang-en="Sandy" data-lang-hi="रेतीली">Sandy</option>
+                                            <option value="clay" data-lang-en="Clay" data-lang-hi="चिकनी मिट्टी">Clay</option>
+                                            <option value="black" data-lang-en="Black Soil" data-lang-hi="काली मिट्टी">Black Soil</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cropType" class="form-label fw-bold" data-lang-en="Select Crop Type" data-lang-hi="फसल का प्रकार चुनें">Select Crop Type</label>
+                                        <select class="form-select" id="cropType">
+                                            <option value="" data-lang-en="-- Select --" data-lang-hi="-- चुनें --">-- Select --</option>
+                                            <option value="wheat" data-lang-en="Wheat" data-lang-hi="गेहूं">Wheat</option>
+                                            <option value="rice" data-lang-en="Rice" data-lang-hi="चावल">Rice</option>
+                                            <option value="soybean" data-lang-en="Soybean" data-lang-hi="सोयाबीन">Soybean</option>
+                                            <option value="corn" data-lang-en="Corn" data-lang-hi="मक्का">Corn</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="symptoms" class="form-label fw-bold" data-lang-en="Describe Symptoms" data-lang-hi="लक्षणों का वर्णन करें">Describe Symptoms</label>
+                                        <textarea class="form-control" id="symptoms" rows="3" placeholder="e.g., Yellow spots on leaves, stunted growth..."
+                                            data-lang-en-placeholder="e.g., Yellow spots on leaves, stunted growth..."
+                                            data-lang-hi-placeholder="उदाहरण: पत्तियों पर पीले धब्बे, विकास में कमी..."></textarea>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg w-50">
+                                            <span data-lang-en="Detect Disease" data-lang-hi="रोग का पता लगाएं">Detect Disease</span> <i class="bi bi-search ms-2"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="loadingSpinner" class="text-center mt-5" style="display:none;">
+                            <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-3 fs-5 text-muted" data-lang-en="Analyzing your input..." data-lang-hi="आपके इनपुट का विश्लेषण किया जा रहा है...">Analyzing your input...</p>
+                        </div>
+
+                        <div id="resultArea" class="mt-5 p-4 bg-light border rounded-3 shadow-sm" style="display:none;">
+                            <h3 class="text-success mb-4 text-center">
+                                <i class="bi bi-patch-check-fill me-2"></i> <span data-lang-en="Detection Result" data-lang-hi="पहचान का परिणाम">Detection Result</span>
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <p class="fw-bold mb-1" data-lang-en="Detected Disease:" data-lang-hi="पहचाना गया रोग:">Detected Disease:</p>
+                                    <h4 class="text-danger" id="detectedDiseaseName"></h4>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <p class="fw-bold mb-1" data-lang-en="Confidence:" data-lang-hi="आत्मविश्वास:">Confidence:</p>
+                                    <p id="confidenceLevel" class="mb-0"></p>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-3">
+
+                            <div class="mb-3">
+                                <p class="fw-bold mb-1" data-lang-en="Description:" data-lang-hi="विवरण:">Description:</p>
+                                <p id="diseaseDescription"></p>
+                            </div>
+                            <div class="mb-3">
+                                <p class="fw-bold mb-1" data-lang-en="Common Symptoms:" data-lang-hi="सामान्य लक्षण:">Common Symptoms:</p>
+                                <ul id="diseaseSymptoms"></ul>
+                            </div>
+                            <div class="mb-3">
+                                <p class="fw-bold mb-1" data-lang-en="Recommended Remedies:" data-lang-hi="सुझाए गए उपचार:">Recommended Remedies:</p>
+                                <ul id="diseaseRemedies"></ul>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-outline-success" onclick="location.reload()">
+                                    <i class="bi bi-arrow-repeat me-2"></i> <span data-lang-en="Detect New" data-lang-hi="नया पता लगाएं">Detect New</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark py-4 mt-5 text-white text-center">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 Krishi Mitra - Your Smart Farm Assistant</p>
+            <p class="mb-0">Designed for a Hackathon with <i class="bi bi-heart-fill text-danger"></i> in India</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>

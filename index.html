@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Mitra - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <header class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">Your Farm's Best Friend</h1>
+        <p class="lead mb-4">Smart advisory for small and marginal farmers.</p>
+        
+        <div class="location-box d-inline-block">
+            <p class="h5 mb-0" id="location-text"><i class="bi bi-geo-alt-fill"></i> Requesting your location...</p>
+            <p class="small mb-0" id="date-text"></p>
+        </div>
+    </div>
+</header>
+
+    <div class="container mt-5 pt-3"> <div class="row g-4 mb-5">
+          <div class="col-lg-8">
+    <div class="card shadow-lg h-100 advisory-card">
+        <div class="card-header advisory-header text-white">
+            <h4 class="card-title mb-0"><i class="bi bi-bullseye me-2"></i> 
+                <span data-lang-en="Today's Important Advisory" data-lang-hi="आज की महत्वपूर्ण सलाह">Today's Important Advisory</span>
+            </h4>
+        </div>
+        <div class="card-body p-4">
+
+            <div class="advisory-priority mb-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-star-fill me-3 fs-4 text-warning"></i>
+                    <div>
+                        <strong data-lang-en="Top Priority for Indore Region" data-lang-hi="इंदौर क्षेत्र के लिए सर्वोच्च प्राथमिकता">Top Priority for Indore Region</strong>
+                        <p class="mb-0" data-lang-en="Focus on Soybean Harvesting" data-lang-hi="सोयाबीन की कटाई पर ध्यान दें">Focus on Soybean Harvesting</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="advisory-section">
+                <h6 class="mb-3" data-lang-en="🌾 Kharif Harvest (खरीफ कटाई)" data-lang-hi="🌾 खरीफ कटाई (Kharif Harvest)">🌾 Kharif Harvest (खरीफ कटाई)</h6>
+                <div class="advisory-item">
+                    <i class="bi bi-check-circle-fill text-success"></i>
+                    <span data-lang-en="Ensure soybeans are fully mature and dry before processing." data-lang-hi="प्रसंस्करण से पहले सुनिश्चित करें कि सोयाबीन पूरी तरह से परिपक्व और सूखा हो।">Ensure soybeans are fully mature and dry before processing.</span>
+                </div>
+                <div class="advisory-item">
+                    <i class="bi bi-thermometer-half text-danger"></i>
+                    <span data-lang-en="Pay close attention to moisture content to avoid spoilage and get the best price." data-lang-hi="खराब होने से बचाने और सर्वोत्तम मूल्य प्राप्त करने के लिए नमी की मात्रा पर पूरा ध्यान दें।">Pay close attention to moisture content to avoid spoilage and get the best price.</span>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="advisory-section">
+                <h6 class="mb-3" data-lang-en="🌱 Rabi Sowing Prep (रबी बुवाई की तैयारी)" data-lang-hi="🌱 रबी बुवाई की तैयारी (Rabi Sowing Prep)">🌱 Rabi Sowing Prep (रबी बुवाई की तैयारी)</h6>
+                <div class="advisory-item">
+                    <i class="bi bi-tools text-info"></i>
+                    <span data-lang-en="This is the perfect time to plan for soil testing for the upcoming Rabi crops." data-lang-hi="आगामी रबी फसलों के लिए मिट्टी परीक्षण की योजना बनाने का यह सही समय है।">This is the perfect time to plan for soil testing for the upcoming Rabi crops.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+            <div class="col-lg-4">
+                <div class="card text-center text-white card-weather shadow-lg mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3" data-lang-en="Weather (मौसम)" data-lang-hi="मौसम (Weather)">Weather (मौसम)</h5>
+                        <div id="weather-info">
+                            <i class="bi bi-cloud-sun-fill display-1"></i>
+                            <p class="display-4 fw-bold mb-0" id="current-temp">29°C</p>
+                            <p class="lead mb-2" id="weather-desc" data-lang-en="Partly Cloudy" data-lang-hi="आंशिक रूप से बादल छाए हुए">Partly Cloudy</p>
+                            <div class="d-flex justify-content-around fs-5">
+                                <span><i class="bi bi-droplet-fill me-1"></i> <span id="humidity-val">75%</span></span>
+                                <span><i class="bi bi-wind me-1"></i> <span id="wind-val">12 km/h</span></span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline-light btn-sm mt-3" data-lang-en="5-Day Forecast" data-lang-hi="5-दिन का पूर्वानुमान">5-Day Forecast <i class="bi bi-box-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-3"><i class="bi bi-graph-up me-2"></i> <span data-lang-en="Market Rates (मंडी भाव)" data-lang-hi="मंडी भाव (Market Rates)">Market Rates (मंडी भाव)</span></h5>
+                        <ul class="list-group list-group-flush" id="market-prices">
+                           </ul>
+                        <a href="market.html" class="btn btn-success w-100 mt-3" data-lang-en="View All Market Prices" data-lang-hi="सभी बाजार भाव देखें">View All Market Prices <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-center mb-4"><span data-lang-en="Quick Actions" data-lang-hi="त्वरित कार्य">Quick Actions</span></h3>
+        <div class="row g-4 text-center mb-5">
+            <div class="col-6 col-md-3 ">
+                <a href="disease.html" class="d-block p-4 rounded-3 bg-white action-card shadow-sm border border-success">
+                    <img src="assets/img/logo_diease.png" alt="Crop Disease" class="img-fluid mb-2" width="70">
+                    <h5 class="mb-0" data-lang-en="Crop Disease" data-lang-hi="फसल रोग">Crop Disease</h5>
+                    <p class="text-muted small" data-lang-en="Identify diseases" data-lang-hi="रोगों की पहचान करें">Identify diseases</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                 <a href="market.html" class="d-block p-4 rounded-3 bg-white action-card shadow-sm border border-success">
+                    <img src="assets/img/logo_market.png" alt="Market Prices" class="img-fluid mb-2" width="70">
+                    <h5 class="mb-0" data-lang-en="Market Prices" data-lang-hi="बाजार भाव">Market Prices</h5>
+                    <p class="text-muted small" data-lang-en="Live mandi rates" data-lang-hi="लाइव मंडी दरें">Live mandi rates</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                 <a href="guide.html" class="d-block p-4 rounded-3 bg-white action-card shadow-sm border border-success">
+                    <img src="assets/img/logo_fertilize.png" alt="Guides" class="img-fluid mb-2" width="70">
+                    <h5 class="mb-0" data-lang-en="Fertilizer/Pesticide" data-lang-hi="खाद/दवाई">Fertilizer/Pesticide</h5>
+                    <p class="text-muted small" data-lang-en="Guides & Calculator" data-lang-hi="गाइड और कैलकुलेटर">Guides & Calculator</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                 <a href="schemes.html" class="d-block p-4 rounded-3 bg-white action-card shadow-sm border border-success">
+                    <img src="assets/img/logo_govtscheme.png" alt="Schemes" class="img-fluid mb-2" width="70">
+                    <h5 class="mb-0" data-lang-en="Govt. Schemes" data-lang-hi="सरकारी योजना">Govt. Schemes</h5>
+                    <p class="text-muted small" data-lang-en="Find farmer benefits" data-lang-hi="किसान लाभ खोजें">Find farmer benefits</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card shadow-lg mb-5 border-0 bg-light">
+            <div class="card-body p-4 p-md-5">
+                <h3 class="card-title text-center mb-4"><i class="bi bi-seedling me-2"></i> <span data-lang-en="Find the Best Crop for Your Farm" data-lang-hi="अपने खेत के लिए सबसे अच्छी फसल खोजें">Find the Best Crop for Your Farm</span></h3>
+                <p class="text-center text-muted mb-4" data-lang-en="Get personalized recommendations based on your soil, location, and weather." data-lang-hi="अपनी मिट्टी, स्थान और मौसम के आधार पर व्यक्तिगत सिफारिशें प्राप्त करें।">Get personalized recommendations based on your soil, location, and weather.</p>
+                
+                <form id="crop-recommendation-form">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputSoilType" class="form-label" data-lang-en="Soil Type" data-lang-hi="मिट्टी का प्रकार">Soil Type</label>
+                            <select class="form-select" id="inputSoilType">
+                                <option value="loamy" data-lang-en="Loamy" data-lang-hi="दोमट">Loamy</option>
+                                <option value="sandy" data-lang-en="Sandy" data-lang-hi="रेतीली">Sandy</option>
+                                <option value="clay" data-lang-en="Clay" data-lang-hi="चिकनी मिट्टी">Clay</option>
+                                <option value="black" data-lang-en="Black Soil" data-lang-hi="काली मिट्टी">Black Soil</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputSoilPH" class="form-label">Soil pH</label>
+                            <input type="number" class="form-control" id="inputSoilPH" value="6.5" step="0.1" min="4.0" max="9.0">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputNitrogen" class="form-label">Nitrogen (N) kg/acre</label>
+                            <input type="number" class="form-control" id="inputNitrogen" value="60">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputPhosphorus" class="form-label">Phosphorus (P) kg/acre</label>
+                            <input type="number" class="form-control" id="inputPhosphorus" value="30">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputPotassium" class="form-label">Potassium (K) kg/acre</label>
+                            <input type="number" class="form-control" id="inputPotassium" value="20">
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success btn-lg" data-lang-en="Get Recommendation" data-lang-hi="सिफारिश प्राप्त करें">Get Recommendation</button>
+                    </div>
+                </form>
+                <div id="recommendationResult" class="alert alert-info mt-4" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-success py-4 mt-5 text-white text-center">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 Krishi Mitra - Your Smart Farm Assistant</p>
+            <p class="mb-0">Designed for a Hackathon with <i class="bi bi-heart-fill text-danger"></i> in India</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>

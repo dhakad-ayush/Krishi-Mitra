@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Krishi Sahayak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a href="#">🌾 Krishi Sahayak</a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="dashboard.html" class="sidebar-link active"><i class="bi bi-grid-1x2-fill me-2"></i>Dashboard</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="my-farm.html" class="sidebar-link"><i class="bi bi-geo-alt-fill me-2"></i>My Farm</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="weather.html" class="sidebar-link"><i class="bi bi-cloud-sun-fill me-2"></i>Weather</a>
+                    </li>
+                     <li class="sidebar-item">
+                        <a href="schemes.html" class="sidebar-link"><i class="bi bi-bank me-2"></i>Govt. Schemes</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="disease-finder.html" class="sidebar-link"><i class="bi bi-heart-pulse-fill me-2"></i>Crop Doctor</a>
+                    </li>
+                     <li class="sidebar-item">
+                        <a href="profile.html" class="sidebar-link"><i class="bi bi-person-fill me-2"></i>Profile</a>
+                    </li>
+                </ul>
+                 <div class="sidebar-footer">
+                     <a href="index.html" class="sidebar-link text-danger"><i class="bi bi-box-arrow-left me-2"></i>Logout</a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+            <main class="content px-3 py-2">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <h4>Admin Dashboard</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <div class="card-body p-0 d-flex flex-fill">
+                                    <div class="row g-0 w-100">
+                                        <div class="col-6">
+                                            <div class="p-3 m-1">
+                                                <h4>Welcome Back, Ramesh</h4>
+                                                <p class="mb-0">Check today's alerts and tasks.</p>
+                                            </div>
+                                        </div>
+                                         <div class="col-6 align-self-end text-end">
+                                            <img src="https://placehold.co/120x120" class="img-fluid illustration-img" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    <div class="card border-0 mt-4">
+                        <div class="card-header">
+                            <h5 class="card-title">Market Price Trends (Soybean)</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>

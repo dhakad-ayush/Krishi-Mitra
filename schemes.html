@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Schemes - Krishi Mitra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container mt-5 pt-4">
+        <div class="scheme-header text-center text-white p-5 rounded-3 mb-4">
+            <h1 class="display-5 fw-bold" data-lang-en="Government Schemes" data-lang-hi="सरकारी योजनाएं">Government Schemes</h1>
+            <p class="lead" data-lang-en="Find beneficial schemes from Central & State Governments." data-lang-hi="केंद्र और राज्य सरकारों की लाभकारी योजनाएं खोजें।">Find beneficial schemes from Central & State Governments.</p>
+        </div>
+
+        <div class="row mb-4 align-items-center">
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <div class="btn-group filter-buttons" role="group">
+                    <button type="button" class="btn btn-success active" data-filter="all" data-lang-en="All Schemes" data-lang-hi="सभी योजनाएं">All Schemes</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="central" data-lang-en="Central" data-lang-hi="केंद्र">Central</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="state" data-lang-en="State" data-lang-hi="राज्य">State</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="insurance" data-lang-en="Insurance" data-lang-hi="बीमा">Insurance</button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" id="schemeSearch" placeholder="Search for schemes..." 
+                           data-lang-en-placeholder="Search for schemes..." 
+                           data-lang-hi-placeholder="योजनाओं के लिए खोजें...">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4" id="schemes-grid">
+            </div>
+
+        <div id="no-results" class="text-center p-5 bg-light rounded-3" style="display: none;">
+            <i class="bi bi-exclamation-circle fs-1 text-muted"></i>
+            <h4 class="mt-3" data-lang-en="No Schemes Found" data-lang-hi="कोई योजना नहीं मिली">No Schemes Found</h4>
+            <p class="text-muted" data-lang-en="Try adjusting your filter or search term." data-lang-hi="अपना फ़िल्टर या खोज शब्द बदलने का प्रयास करें।">Try adjusting your filter or search term.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>

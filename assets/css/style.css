@@ -1,0 +1,461 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 70px; /* Space for the fixed navbar */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* Navbar */
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Hero Section Banner */
+/* Hero Section with Your Banner */
+.hero-section {
+    /* Yahan aapki file ka path set kiya gaya hai */
+    background: url('../img/banner.png') no-repeat center center/cover;
+    min-height: 450px;
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Dark overlay for text readability */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Ensures text is above the overlay */
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* "Glass" Location Box Style */
+.location-box {
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* The blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-advisory {
+    background: linear-gradient(135deg, #28a745, #007bff);
+}
+
+.card-weather {
+    background: linear-gradient(135deg, #17a2b8, #6f42c1);
+}
+
+/* Quick Action Cards */
+.action-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.action-card h5 {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Language and Price Styles */
+.language-btn.active {
+    background-color: white !important;
+    color: #198754 !important;
+}
+
+.price-up {
+    color: #198754;
+}
+
+.price-down {
+    color: #dc3545;
+}
+
+/* Footer */
+footer {
+    background-color: #198754;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation delays to cards */
+.col-lg-8 .card { animation-delay: 0.2s; }
+.col-lg-4 .card { animation-delay: 0.4s; }
+.action-card { animation-delay: 0.6s; }
+#crop-recommendation-form { animation-delay: 0.8s; }
+
+/* == NEW STYLES FOR ADVISORY CARD == */
+
+.advisory-card {
+    background-color: #fff;
+    border-radius: 15px; /* Consistent rounded corners */
+}
+
+.advisory-header {
+    background: linear-gradient(135deg, #28a745, #0d6efd);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 1rem 1.5rem;
+}
+
+.advisory-priority {
+    background-color: #fff3cd; /* Light yellow background */
+    border-left: 5px solid #ffc107; /* Yellow left border */
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.advisory-section h6 {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.advisory-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.advisory-item i {
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+    min-width: 20px; /* Aligns the text neatly */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 56px; /* **IMPORTANT for fixed-top navbar** */
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+/* == NEW STYLES FOR GUIDE.HTML == */
+
+.guide-header {
+    background: linear-gradient(135deg, #198754, #0d6efd);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.guide-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6c757d;
+    border: 0;
+    border-bottom: 3px solid transparent;
+}
+
+.guide-tabs .nav-link.active {
+    color: #198754;
+    background-color: #fff;
+    border-bottom: 3px solid #198754;
+}
+
+.result-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #198754;
+    padding: 1.25rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-card h6 {
+    font-weight: 600;
+}
+
+.result-card .display-6 {
+    font-weight: 700;
+    color: #198754;
+}
+
+.pest-card {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.pest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.pest-card .pest-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* == NEW STYLES FOR SCHEMES.HTML == */
+
+.scheme-header {
+    background: linear-gradient(135deg, #6610f2, #17a2b8);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.filter-buttons .btn {
+    font-weight: 500;
+}
+
+.scheme-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.scheme-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.scheme-card .card-title {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.scheme-card .card-text {
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.scheme-card .badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* == NEW STYLES FOR MARKET.HTML == */
+
+.market-header {
+    background: linear-gradient(135deg, #0d6efd, #6f42c1);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.summary-card {
+    border-radius: 15px;
+    padding: 1.25rem;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.summary-card.top-gainer {
+    background: linear-gradient(135deg, #198754, #20c997);
+}
+
+.summary-card.top-loser {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+}
+
+.featured-crop-card {
+    background-color: #f8f9fa;
+}
+
+.price-point {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.price-point i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+.price-point.min-price i { color: #dc3545; }
+.price-point.modal-price i { color: #0d6efd; }
+.price-point.max-price i { color: #198754; }
+
+.price-table th {
+    font-weight: 600;
+}
+/* == NEW STYLES FOR LOGIN/SIGNUP PAGES == */
+/* == NEW STYLES FOR LOGIN/SIGNUP PAGES V2 == */
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('assets/img/loginback.png') no-repeat center center/cover;
+    position: relative;
+}
+
+.auth-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+    backdrop-filter: blur(15px); /* The "glass" effect */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: white; /* Make text inside white */
+    z-index: 2; /* Puts the card above the overlay */
+}
+
+.auth-card .navbar-brand,
+.auth-card .text-muted,
+.auth-card a {
+    color: #f8f9fa !important; /* Lighter text color */
+}
+
+.auth-card a.text-success {
+    color: #90ee90 !important; /* Light green for links */
+}
+
+.auth-card .form-control {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.auth-card .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: none;
+    border-color: #90ee90;
+}
+
+.auth-card .form-floating > label {
+    color: #d3d3d3; /* Light grey for floating labels */
+}
+
+.auth-card .input-group-text {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #f8f9fa;
+}
+
+/* Fix for floating label z-index issue */
+.input-group > .form-floating > .form-control:focus {
+    z-index: 5;
+}
+
+/* == UPDATED STYLES FOR MARKET.HTML == */
+
+.price-point {
+    border-radius: 10px;
+    padding: 0.75rem;
+}
+.price-point.min-price { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; }
+.price-point.modal-price { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+.price-point.max-price { background-color: rgba(25, 135, 84, 0.1); color: #198754; }
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 56px; /* Default for fixed-top navbar */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* For pages without fixed-top navbar like login */
+body:has(.auth-wrapper) {
+    padding-top: 0;
+}
+
+/* Navbar */
+.navbar-brand { font-size: 1.5rem; font-weight: 600; }
+
+/* Hero Section (Dashboard) */
+
+.tryit{
+     background: url('../img/loginback.png') no-repeat center center/cover;
+}
+
+.trans{
+   
+
+ 
+
+    
+  
+}

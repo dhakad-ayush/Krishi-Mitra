@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Prices - Krishi Mitra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container mt-5 pt-4">
+        <div class="market-header text-center text-white p-5 rounded-3 mb-4">
+            <h1 class="display-5 fw-bold" data-lang-en="Live Mandi Dashboard" data-lang-hi="लाइव मंडी डैशबोर्ड">Live Mandi Dashboard</h1>
+            <p class="lead" data-lang-en="Track daily prices, trends, and analytics from your local market." data-lang-hi="अपने स्थानीय बाजार से दैनिक कीमतों, रुझानों और विश्लेषण को ट्रैक करें।">Track daily prices, trends, and analytics from your local market.</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <label for="mandiSelect" class="form-label fw-bold" data-lang-en="Select Market (Mandi):" data-lang-hi="मंडी चुनें:">Select Market (Mandi):</label>
+                <select class="form-select form-select-lg" id="mandiSelect">
+                    <option value="indore" selected data-lang-en="Indore Mandi" data-lang-hi="इंदौर मंडी">Indore Mandi</option>
+                    <option value="ujjain" data-lang-en="Ujjain Mandi" data-lang-hi="उज्जैन मंडी">Ujjain Mandi</option>
+                    <option value="bhopal" data-lang-en="Bhopal Mandi" data-lang-hi="भोपाल मंडी">Bhopal Mandi</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="cropSelect" class="form-label fw-bold" data-lang-en="Select Crop to Feature:" data-lang-hi="फीचर करने के लिए फसल चुनें:">Select Crop to Feature:</label>
+                <select class="form-select form-select-lg" id="cropSelect">
+                    <option value="soybean" selected data-lang-en="Soybean" data-lang-hi="सोयाबीन">Soybean</option>
+                    <option value="wheat" data-lang-en="Wheat" data-lang-hi="गेहूं">Wheat</option>
+                    <option value="gram" data-lang-en="Gram" data-lang-hi="चना">Gram</option>
+                    <option value="onion" data-lang-en="Onion" data-lang-hi="प्याज">Onion</option>
+                    <option value="potato" data-lang-en="Potato" data-lang-hi="आलू">Potato</option>
+                    <option value="garlic" data-lang-en="Garlic" data-lang-hi="लहसुन">Garlic</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-lg-7">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3" id="featured-crop-title">Today's Price</h5>
+                        <div class="row text-center">
+                            <div class="col-4"><div class="price-point min-price"><p class="mb-0 text-muted" data-lang-en="Min" data-lang-hi="न्यूनतम">Min</p><h4 class="fw-bold" id="min-price">₹0</h4></div></div>
+                            <div class="col-4"><div class="price-point modal-price"><p class="mb-0 text-muted" data-lang-en="Modal" data-lang-hi="मॉडल">Modal</p><h4 class="fw-bold" id="modal-price">₹0</h4></div></div>
+                            <div class="col-4"><div class="price-point max-price"><p class="mb-0 text-muted" data-lang-en="Max" data-lang-hi="अधिकतम">Max</p><h4 class="fw-bold" id="max-price">₹0</h4></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="row g-4">
+                    <div class="col-12"><div class="summary-card top-gainer"><div class="card-body"><p class="mb-1" data-lang-en="Top Gainer" data-lang-hi="सबसे बड़ी तेजी">Top Gainer</p><div class="d-flex justify-content-between align-items-center"><h5 class="mb-0" id="top-gainer-name">--</h5><span class="fw-bold" id="top-gainer-change">▲ ₹0</span></div></div></div></div>
+                    <div class="col-12"><div class="summary-card top-loser"><div class="card-body"><p class="mb-1" data-lang-en="Top Loser" data-lang-hi="सबसे बड़ी मंदी">Top Loser</p><div class="d-flex justify-content-between align-items-center"><h5 class="mb-0" id="top-loser-name">--</h5><span class="fw-bold" id="top-loser-change">▼ ₹0</span></div></div></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8">
+                <div class="card shadow-sm h-100 border-0"><div class="card-body p-4"><h5 class="card-title mb-3" id="chart-title">Price Trend (Last 7 Days)</h5><canvas id="priceChart"></canvas></div></div>
+            </div>
+            <div class="col-lg-4">
+                 <div class="card shadow-sm h-100 border-0"><div class="card-body p-4"><h5 class="card-title mb-3" data-lang-en="Price Distribution" data-lang-hi="मूल्य वितरण">Price Distribution</h5><canvas id="distributionChart"></canvas></div></div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-light"><h5 class="mb-0" data-lang-en="All Market Prices" data-lang-hi="सभी बाजार भाव">All Market Prices</h5></div>
+            <div class="card-body"><div class="table-responsive"><table class="table table-hover price-table"><thead><tr><th data-lang-en="Crop" data-lang-hi="फसल">Crop</th><th data-lang-en="Modal Price (per Qtl)" data-lang-hi="मॉडल मूल्य (प्रति क्विंटल)">Modal Price (per Qtl)</th><th data-lang-en="Change" data-lang-hi="बदलाव">Change</th></tr></thead><tbody id="price-table-body"></tbody></table></div></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>

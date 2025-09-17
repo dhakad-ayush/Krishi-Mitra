@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides - Krishi Mitra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🌿 कृषि मित्र (Krishi Mitra)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="market.html">Market Prices</a></li>
+                <li class="nav-item"><a class="nav-link" href="disease.html">Disease Detector</a></li>
+                <li class="nav-item"><a class="nav-link" href="guide.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                <li class="nav-item ms-lg-3">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-sm language-btn" data-lang="en">English</button>
+                      <button type="button" class="btn btn-sm language-btn" data-lang="hi">हिन्दी</button>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="auth-button-container">
+                    <a href="login.html" class="btn btn-light btn-sm" data-lang-en="Login" data-lang-hi="लॉगिन">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container mt-5 pt-4">
+        <div class="guide-header text-center text-white p-5 rounded-3 mb-4">
+            <h1 class="display-5 fw-bold" data-lang-en="Knowledge Hub" data-lang-hi="ज्ञान केंद्र">Knowledge Hub</h1>
+            <p class="lead" data-lang-en="Your guide to fertilizers, pesticides, and crop protection." data-lang-hi="उर्वरक, कीटनाशक और फसल सुरक्षा के लिए आपकी मार्गदर्शिका।">Your guide to fertilizers, pesticides, and crop protection.</p>
+        </div>
+
+        <ul class="nav nav-pills nav-fill mb-4 guide-tabs" id="guideTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="fertilizer-tab" data-bs-toggle="tab" data-bs-target="#fertilizer" type="button" role="tab">
+                    <i class="bi bi-calculator-fill me-2"></i> <span data-lang-en="Fertilizer Calculator" data-lang-hi="उर्वरक कैलकुलेटर">Fertilizer Calculator</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pesticide-tab" data-bs-toggle="tab" data-bs-target="#pesticide" type="button" role="tab">
+                    <i class="bi bi-shield-shaded me-2"></i> <span data-lang-en="Pest & Weed Library" data-lang-hi="कीट और खरपतवार लाइब्रेरी">Pest & Weed Library</span>
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="guideTabsContent">
+            <div class="tab-pane fade show active" id="fertilizer" role="tabpanel">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h5 class="card-title mb-3" data-lang-en="Calculate Requirement" data-lang-hi="आवश्यकता की गणना करें">Calculate Requirement</h5>
+                                <div class="mb-3">
+                                    <label for="fertCropSelect" class="form-label" data-lang-en="Step 1: Select Crop" data-lang-hi="चरण 1: फसल चुनें">Step 1: Select Crop</label>
+                                    <select class="form-select" id="fertCropSelect">
+                                        <option value="wheat" data-lang-en="Wheat (गेहूं)" data-lang-hi="गेहूं (Wheat)">Wheat (गेहूं)</option>
+                                        <option value="soybean" data-lang-en="Soybean (सोयाबीन)" data-lang-hi="सोयाबीन (Soybean)">Soybean (सोयाबीन)</option>
+                                        <option value="cotton" data-lang-en="Cotton (कपास)" data-lang-hi="कपास (Cotton)">Cotton (कपास)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="farmSize" class="form-label" data-lang-en="Step 2: Enter Farm Size (in Acres)" data-lang-hi="चरण 2: खेत का आकार दर्ज करें (एकड़ में)">Step 2: Enter Farm Size (in Acres)</label>
+                                    <input type="number" class="form-control" id="farmSize" value="1" min="0.1" step="0.1">
+                                </div>
+                                <button class="btn btn-success w-100 btn-lg" id="calculateFert">
+                                    <i class="bi bi-arrow-down-circle-fill me-2"></i> <span data-lang-en="Calculate Now" data-lang-hi="अभी गणना करें">Calculate Now</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-7 mt-4 mt-lg-0">
+                                <h5 class="card-title mb-3" data-lang-en="Your Recommendation" data-lang-hi="आपकी सिफारिश">Your Recommendation</h5>
+                                <div id="fertResult" class="row g-3">
+                                    <div class="col-12 text-center p-5 bg-light rounded-3">
+                                        <i class="bi bi-info-circle fs-1 text-muted"></i>
+                                        <p class="mt-2 text-muted" data-lang-en="Your results will appear here." data-lang-hi="आपके परिणाम यहां दिखाई देंगे।">Your results will appear here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pesticide" role="tabpanel">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h5 class="card-title" data-lang-en="Common Pests & Weeds" data-lang-hi="आम कीट और खरपतवार">Common Pests & Weeds</h5>
+                        <p class="text-muted" data-lang-en="Click on a pest to see details and control measures." data-lang-hi="विवरण और नियंत्रण के उपाय देखने के लिए कीट पर क्लिक करें।">Click on a pest to see details and control measures.</p>
+                        <div class="row g-4 mt-3">
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <a href="#" class="pest-card" data-bs-toggle="modal" data-bs-target="#pestDetailModal" data-pest="whitefly">
+                                    <img src="assets/img/whitefly.png" alt="Whitefly" class="img-fluid">
+                                    <div class="pest-name" data-lang-en="Whitefly" data-lang-hi="सफेद मक्खी">Whitefly</div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <a href="#" class="pest-card" data-bs-toggle="modal" data-bs-target="#pestDetailModal" data-pest="aphids">
+                                    <img src="assets/img/aphids.png" alt="Aphids" class="img-fluid">
+                                    <div class="pest-name" data-lang-en="Aphids" data-lang-hi="माहू">Aphids</div>
+                                </a>
+                            </div>
+                             <div class="col-6 col-md-4 col-lg-3">
+                                <a href="#" class="pest-card" data-bs-toggle="modal" data-bs-target="#pestDetailModal" data-pest="bollworm">
+                                    <img src="assets/img/Bollworm.png" alt="Bollworm" class="img-fluid">
+                                    <div class="pest-name" data-lang-en="Bollworm" data-lang-hi="सुंडी">Bollworm</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="pestDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="pestModalTitle">Pest Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <img id="pestModalImage" src="" class="img-fluid rounded shadow-sm mb-3" alt="Pest Image">
+                        </div>
+                        <div class="col-md-7">
+                            <div id="pestModalContent">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+ <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <nav class="navbar ...">
+
+</html>
