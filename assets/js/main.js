@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // For all other pages, setup the language switcher and navbar
     updateNavbarForLoggedInUser();
     setupLanguageSwitcher();
+    setupChatbot();
 
     // Now, run the function for the specific page
     if (page === 'index.html' || page === '') {
@@ -520,4 +521,95 @@ function setupSchemesPage() {
 
     // Initial render
     renderSchemes();
+}
+
+// -- CHATBOT FUNCTIONS --
+
+function setupChatbot() {
+    const chatToggleButton = document.getElementById('chat-toggle-button');
+    const chatCloseButton = document.getElementById('chat-close-button');
+    const chatWindow = document.getElementById('chat-window');
+
+    if (!chatToggleButton) return; // Only run on pages with the chatbot
+
+    chatToggleButton.addEventListener('click', () => toggleChat(true));
+    chatCloseButton.addEventListener('click', () => toggleChat(false));
+
+    // Initialize with the starting message
+    displayChatResponse('start');
+}
+
+function toggleChat(open) {
+    const chatWindow = document.getElementById('chat-window');
+    chatWindow.style.display = open ? 'flex' : 'none';
+}
+
+function displayChatResponse(nodeKey) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const optionsContainer = document.getElementById('chat-options');
+
+    // The "Brain" of our chatbot
+    const chatbotBrain = {
+        'start': {
+            text: "नमस्ते! मैं कृषि मित्र सहायक हूँ। मैं आपकी क्या मदद कर सकता हूँ?",
+            options: [
+                { text: "मौसम की जानकारी", nextNode: "weather" },
+                { text: "मंडी के भाव", nextNode: "mandi" },
+                { text: "फसल रोग", nextNode: "disease" },
+            ]
+        },
+        'weather': {
+            text: "ठीक है, मौसम के बारे में आप क्या जानना चाहते हैं?",
+            options: [
+                { text: "आज का मौसम", action: () => alert("आज मौसम साफ है। तापमान 29°C है।") },
+                { text: "अगले 5 दिन", action: () => alert("अगले 5 दिन मौसम साफ रहेगा।") },
+                { text: "वापस जाएं", nextNode: "start" }
+            ]
+        },
+        'mandi': {
+            text: "आपको किस फसल का भाव जानना है?",
+            options: [
+                { text: "सोयाबीन", action: () => alert("आज सोयाबीन का भाव ₹4750/क्विंटल है।") },
+                { text: "गेहूं", action: () => alert("आज गेहूं का भाव ₹2410/क्विंटल है।") },
+                { text: "वापस जाएं", nextNode: "start" }
+            ]
+        },
+        'disease': {
+            text: "फसल रोग की जानकारी के लिए, कृपया 'Disease Detector' पेज पर जाएं।",
+            options: [
+                { text: "पेज पर ले जाएं", action: () => window.location.href = 'disease.html' },
+                { text: "वापस जाएं", nextNode: "start" }
+            ]
+        }
+    };
+
+    const node = chatbotBrain[nodeKey];
+
+    // Display the bot's message
+    const botMessage = document.createElement('div');
+    botMessage.className = 'chat-message bot';
+    botMessage.innerText = node.text;
+    messagesContainer.appendChild(botMessage);
+
+    // Clear previous options
+    optionsContainer.innerHTML = '';
+
+    // Display the new options as buttons
+    node.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'btn btn-outline-success';
+        button.innerText = option.text;
+        button.addEventListener('click', () => {
+            if (option.nextNode) {
+                displayChatResponse(option.nextNode);
+            } else if (option.action) {
+                option.action();
+                toggleChat(false); // Close chat after action
+            }
+        });
+        optionsContainer.appendChild(button);
+    });
+
+    // Scroll to the latest message
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
